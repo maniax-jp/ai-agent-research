@@ -432,6 +432,57 @@ GUI で：
 
 ---
 
+## 成功時マージ / 失敗時破棄パターン
+
+claude のドキュメントを参照した、Worktree 運用の最大の価値となるパターンです。
+
+### パターン A：テスト成功時 → マージして統合
+
+```bash
+# main ブランチに戻る
+cd ~/worktree-demo
+
+# 各機能ブランチをマージ
+git merge feature/auth --no-ff -m "feat: JWT 認証機能を統合"
+git merge feature/payment --no-ff -m "feat: 決済機能を統合"
+git merge feature/notifications --no-ff -m "feat: 通知機能を統合"
+
+# Worktree を削除
+git worktree remove ../worktree-auth
+git worktree remove ../worktree-payment
+git worktree remove ../worktree-notifications
+
+# 確認
+git log --graph --oneline -10
+```
+
+### パターン B：テスト失敗時 → 何もせず破棄
+
+```bash
+# テスト失敗・修正不能と判断した Worktree を破棄する
+# ※ main には 1 行も変更が加わっていないため完全安全
+cd ~/worktree-demo  # メインに戻る
+
+git worktree remove ../worktree-payment --force  # 強制削除
+git branch -D feature/payment                    # 失敗ブランチも削除
+
+# 確認：main は全く変わっていない
+git status  # → nothing to commit, working tree clean
+git log --oneline -3  # → メインのコミット履歴は変化なし
+
+echo "✅ メイン環境は全く汚染されていません"
+```
+
+**このパターン B こそが Worktree 運用の最大の価値**です。エージェントが試行錯誤した全ての中間状態が破棄され、メイン環境は保護されます。
+
+```
+試行錯誤コスト:
+  通常の git checkout → stash/commit が必要 → コンテキスト混濁
+  Worktree → 物理的に分離 → 完全破棄可能
+```
+
+---
+
 ## ベストプラクティス
 
 ### 1. Worktree の命名規則

@@ -366,6 +366,95 @@ claude
 
 ---
 
+## 進階：CLAUDE.md の階層構造と実行契約
+
+### CLAUDE.md の読み込み優先順位
+
+```
+~/.claude/CLAUDE.md          ← グローバル（常に読み込まれる）
+    +
+{project_root}/CLAUDE.md     ← プロジェクトルート
+    +
+{current_dir}/CLAUDE.md      ← カレントディレクトリ（深いほど上書き）
+    +
+{subdir}/CLAUDE.md           ← サブディレクトリ（最も優先される）
+```
+
+内容は **すべて連結** されてコンテキストに注入されます（上書きではなく追加）。
+
+### 実行契約としての CLAUDE.md
+
+```markdown
+# プロジェクト名 — CLAUDE.md（実行契約版）
+
+## Allowed（許可する操作）
+- rg (ripgrep)
+- git status / git diff / git log
+- npm test / npm run lint
+- ファイルの読み取り・編集
+
+## Disallowed（禁止する操作）
+- git reset --hard
+- git push --force
+- rm -rf
+- .env ファイルのコミット
+
+## Edit Scope（編集可能範囲）
+- src/**
+- tests/**
+- docs/**（README のみ）
+
+## Review Gate（完了条件）
+- 破壊的変更なし
+- 新規ロジックにはテストが追加されている
+- lint エラーがゼロ
+```
+
+### CLAUDE.md あり/なし比較
+
+**CLAUDE.md なし → 汎用的な出力:**
+
+```tsx
+// Claude の出力（CLAUDE.md なし）
+import React from 'react';
+
+export default function Button({ onClick, children }: any) {  // ← any 型
+  return (
+    <button onClick={onClick} style={{ padding: '10px' }}>    // ← インラインスタイル
+      {children}
+    </button>
+  );
+}
+```
+
+**CLAUDE.md あり → 規約に準拠した出力:**
+
+```tsx
+// Claude の出力（CLAUDE.md あり）
+import { ReactNode } from 'react';
+
+interface ButtonProps {                    // ← 型定義（any 禁止のため）
+  onClick: () => void;
+  children: ReactNode;
+  variant?: 'primary' | 'secondary';
+}
+
+export const Button = ({                  // ← Named Export（default 禁止のため）
+  onClick,
+  children,
+  variant = 'primary'
+}: ButtonProps) => {
+  const base = 'px-4 py-2 rounded font-medium';
+  return (
+    <button className={`${base} ...`}>    // ← Tailwind のみ
+      {children}
+    </button>
+  );
+};
+```
+
+---
+
 ## 進階：高度な AGENTS.md
 
 ### ステップ 4: スキル統合

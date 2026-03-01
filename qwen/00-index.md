@@ -16,11 +16,12 @@
 |------|-----------|-------------|
 | Skills システム | ✅ 完了 | [01-skills.md](./01-skills.md) |
 | Subagent | ✅ 完了 | [02-subagent.md](./02-subagent.md) |
-| AGENTS.md | ✅ 完了 | [03-agents.md.md](./03-agents.md.md) |
+| AGENTS.md / CLAUDE.md | ✅ 完了 | [03-agents.md.md](./03-agents.md.md) |
 | OpenClaw | ✅ 完了 | [04-openclaw.md](./04-openclaw.md) |
 | Agent Teams | ✅ 完了 | [05-agent-teams.md](./05-agent-teams.md) |
 | Context Fork | ✅ 完了 | [06-context-fork.md](./06-context-fork.md) |
 | Git Worktree | ✅ 完了 | [07-git-worktree.md](./07-git-worktree.md) |
+| MCP | ✅ 完了 | [08-mcp.md](./08-mcp.md) |
 
 ---
 
@@ -94,18 +95,39 @@ Git Worktree を使った並列エージェント実行
 - **概要:** Git worktree 機能を使用して複数のエージェントを並列で実行
 - **主要特徴:**
   - 分離されたワークスペース
-  - ブランチベースの隔離
-  - コミットとマージのワークフロー
+  - 成功時マージ / 失敗時破棄パターン
+  - 各 Worktree に専用 CLAUDE.md
 - **ハンズオン:** Worktree の作成、並列エージェント実行、結果マージ
+
+### 8. [MCP（Model Context Protocol）](./08-mcp.md)
+AI エージェントの標準接続プロトコル
+
+- **概要:** AI エージェントと外部ツール・データソースを接続するための標準化されたプロトコル
+- **主要特徴:**
+  - Tools、Resources、Prompts、Sampling
+  - stdio と Streamable HTTP トランスポート
+  - MCP Apps（UI コンポーネント）
+- **ハンズオン:** MCP サーバーの作成、Claude Code への登録
 
 ---
 
 ## 関連リソース
 
+### 公式ドキュメント
 - [Anthropic Developer Docs](https://docs.anthropic.com/)
+- [Claude Code Documentation](https://code.claude.com/docs)
 - [MCP Servers](https://modelcontextprotocol.io/)
+
+### オープンソースプロジェクト
 - [OpenClaw GitHub](https://github.com/PeterSteinberger/openclaw)
 - [AGENTS.md Specification](https://www.agents.md/)
+- [Parallel Code](https://github.com/johannesjo/parallel-code)
+- [Awesome OpenClaw](https://github.com/SamurAIGPT/awesome-openclaw)
+
+### 技術記事
+- [Git Worktrees for AI Coding](https://dev.to/mashrulhaque/git-worktrees-for-ai-coding)
+- [The State of AI Agents in 2026](https://meditations.metavert.io/p/the-state-of-ai-agents-in-2026)
+- [AI Agent Trends 2026](https://cloud.google.com/resources/content/ai-agent-trends-2026)
 
 ---
 
