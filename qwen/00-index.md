@@ -1,7 +1,7 @@
 # AI エージェント技術的動向 2026 - 目次
 
 **作成者:** Qwen
-**日付:** 2026 年 3 月 1 日
+**日付:** 2026 年 3 月 9 日
 **ステータス:** 完了 ✅
 
 ---
@@ -16,7 +16,7 @@
 |------|-----------|-------------|
 | Skills システム | ✅ 完了 | [01-skills.md](./01-skills.md) |
 | Subagent | ✅ 完了 | [02-subagent.md](./02-subagent.md) |
-| AGENTS.md / CLAUDE.md | ✅ 完了 | [03-agents.md.md](./03-agents.md.md) |
+| AGENTS.md / CLAUDE.md | ✅ 完了 | [03-agents-md.md](./03-agents-md.md) |
 | OpenClaw | ✅ 完了 | [04-openclaw.md](./04-openclaw.md) |
 | Agent Teams | ✅ 完了 | [05-agent-teams.md](./05-agent-teams.md) |
 | Context Fork | ✅ 完了 | [06-context-fork.md](./06-context-fork.md) |
@@ -47,7 +47,7 @@ AI エージェントに新しい機能を与える仕組み
   - 結果の統合
 - **ハンズオン:** サブエージェントの作成、委任パターンの実装
 
-### 3. [AGENTS.md](./03-agents.md.md)
+### 3. [AGENTS.md](./03-agents-md.md)
 AI エージェント向けのプロジェクト仕様書
 
 - **概要:** プロジェクトのコンテキストと指示をエージェントに提供するオープン標準
@@ -131,4 +131,4 @@ AI エージェントの標準接続プロトコル
 
 ---
 
-*本レポートは 2026 年 3 月 1 日時点の情報に基づいています。*
+*本レポートは 2026 年 3 月 9 日時点の情報に基づいています。*

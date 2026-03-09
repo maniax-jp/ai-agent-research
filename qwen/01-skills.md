@@ -1,7 +1,7 @@
 # Skills システム - AI エージェントに新しい機能を与える仕組み
 
 **作成者:** Qwen
-**日付:** 2026 年 3 月 1 日
+**日付:** 2026 年 3 月 9 日
 
 ---
 
@@ -497,7 +497,7 @@ SELECT * FROM users WHERE id = $1;
 1 つのスキルで全てをカバーしようとせず、小さく分割：
 
 ```
-.clude/skills/
+.claude/skills/
 ├── authentication/
 ├── database/
 ├── api/

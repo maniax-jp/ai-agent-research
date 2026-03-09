@@ -1,7 +1,7 @@
 # MCP（Model Context Protocol）- AI エージェントの標準接続プロトコル
 
 **作成者:** Qwen
-**日付:** 2026 年 3 月 1 日
+**日付:** 2026 年 3 月 9 日
 
 ---
 
@@ -520,7 +520,7 @@ MCP は AI エージェントと外部ツールを接続するための標準プ
 ### 次のステップ
 
 1. [Skills](./01-skills.md) - Skills と MCP の組み合わせ
-2. [AGENTS.md](./03-agents.md.md) - MCP 設定の統合
+2. [AGENTS.md](./03-agents-md.md) - MCP 設定の統合
 3. [OpenClaw](./04-openclaw.md) - OpenClaw と MCP の統合
 
 ---

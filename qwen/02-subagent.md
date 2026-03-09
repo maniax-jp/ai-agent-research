@@ -1,7 +1,7 @@
 # Subagent（サブエージェント）- タスクの委任と並列処理
 
 **作成者:** Qwen
-**日付:** 2026 年 3 月 1 日
+**日付:** 2026 年 3 月 9 日
 
 ---
 
@@ -602,7 +602,7 @@ git worktree remove ../.claude/worktrees/feature-x
 
 ### 次のステップ
 
-1. [AGENTS.md](./03-agents.md.md) - プロジェクト仕様書
+1. [AGENTS.md](./03-agents-md.md) - プロジェクト仕様書
 2. [Agent Teams](./05-agent-teams.md) - マルチエージェントオーケストレーション
 3. [Git Worktree](./07-git-worktree.md) - 並列実行の詳細
 
